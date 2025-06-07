@@ -1,0 +1,24 @@
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        // here for last in first out we uses stack datatype
+        for(char c : s.toCharArray()){
+            //char c contains the input charaters stored in string to store in array
+            if (c == '(') stack.push(')');
+            else if (c == '[') stack.push(']');
+            else if ( c == '{') stack.push('}');
+            // where the parantheses are same they will be push to the stack 
+            else { 
+                if (stack.isEmpty() || stack.pop() != c )
+                //when stack is empty and not valid parantheses are there then they will be poped out and return boolean as false
+                {
+                return false;
+                }
+            }
+
+            
+        }
+        return stack.isEmpty();
+        
+    }
+}
